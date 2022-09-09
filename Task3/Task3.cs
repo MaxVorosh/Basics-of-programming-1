@@ -20,9 +20,24 @@
  * делящийся на 4, за исключением тех годов, которые делятся на 100 и не делятся на 400
  * (например, годы 300, 1300 и 1900 не являются високосными, а 1200 и 2000 — являются).
  */
-        internal static int NumberOfDays(int year) => (year % 4 == 0 && (year % 100 != 0 || year % 400 == 0)) ? 366: 365;
+        internal static int NumberOfDays(int year)
+        {
+            if (year % 4 != 0)
+            {
+                return 365;
+            }
 
-/*
+            if (year % 100 == 0 && year % 400 != 0)
+            {
+                return 365;
+            }
+
+            return 366;
+        }
+        //return (year % 4 == 0 && (year % 100 != 0 || year % 400 == 0)) ? 366 : 365;
+        
+
+        /*
  * Задание 3.3. Локатор ориентирован на одну из сторон света («С» — север, «З» — запад,
  * «Ю» — юг, «В» — восток) и может принимать три цифровые команды поворота:
  * 1 — поворот налево, −1 — поворот направо, 2 — поворот на 180°.
@@ -63,61 +78,63 @@
         internal static String AgeDescription(int age)
         {
             string rezult = "";
-            if (age / 10 == 2)
+            int first_digit = age / 10;
+            int second_digit = age % 10;
+            if (first_digit == 2)
             {
                 rezult = "двадцать ";
             }
-            else if (age / 10 == 3) {
+            else if (first_digit == 3) {
                 rezult = "тридцать ";
             }
-            else if (age / 10 == 4)
+            else if (first_digit == 4)
             {
                 rezult = "сорок ";
             }
-            else if (age / 10 == 5)
+            else if (first_digit == 5)
             {
                 rezult = "пятьдесят ";
             }
-            else if (age / 10 == 6)
+            else if (first_digit == 6)
             {
                 rezult = "шестьдесят ";
             }
-            if (age % 10 == 0) {
+            if (second_digit == 0) {
                 rezult += "лет";
             }
-            else if (age % 10 == 1)
+            else if (second_digit == 1)
             {
                 rezult += "один год";
             }
-            else if (age % 10 == 2)
+            else if (second_digit == 2)
             {
                 rezult += "два года";
             }
-            else if (age % 10 == 3)
+            else if (second_digit == 3)
             {
                 rezult += "три года";
             }
-            else if (age % 10 == 4)
+            else if (second_digit == 4)
             {
                 rezult += "четыре года";
             }
-            else if (age % 10 == 5)
+            else if (second_digit == 5)
             {
                 rezult += "пять лет";
             }
-            else if (age % 10 == 6)
+            else if (second_digit == 6)
             {
                 rezult += "шесть лет";
             }
-            else if (age % 10 == 7)
+            else if (second_digit == 7)
             {
                 rezult += "семь лет";
             }
-            else if (age % 10 == 8)
+            else if (second_digit == 8)
             {
                 rezult += "восемь лет";
             }
-            else if (age % 10 == 9)
+            else if (second_digit == 9)
             {
                 rezult += "девять лет";
             }
