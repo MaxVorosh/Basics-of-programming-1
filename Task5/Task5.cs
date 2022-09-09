@@ -47,18 +47,18 @@ namespace Task5
 
         internal static BigInteger Fib(int n)
         {
-            BigInteger current_fib = 1;
-            BigInteger last_fib = 0;
+            BigInteger currentFib = 1;
+            BigInteger lastFib = 0;
             if (n == 0)
             {
                 return 0;
             }
             for (int i = 1; i < n; ++i)
             {
-                current_fib = current_fib + last_fib;
-                last_fib = current_fib - last_fib;
+                currentFib = currentFib + lastFib;
+                lastFib = currentFib - lastFib;
             }
-            return current_fib;
+            return currentFib;
         }
 
         internal static void ComputeFib(string[] args)

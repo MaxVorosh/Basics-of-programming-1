@@ -77,68 +77,34 @@
  */
         internal static String AgeDescription(int age)
         {
-            string rezult = "";
+            string result = "";
             int first_digit = age / 10;
             int second_digit = age % 10;
-            if (first_digit == 2)
+            result = first_digit switch
             {
-                rezult = "двадцать ";
-            }
-            else if (first_digit == 3) {
-                rezult = "тридцать ";
-            }
-            else if (first_digit == 4)
+                2 => "двадцать ",
+                3 => "тридцать ",
+                4 => "сорок ",
+                5 => "пятьдесят ",
+                6 => "шестьдесят ",
+                _ => result
+            };
+
+            var result2 = second_digit switch
             {
-                rezult = "сорок ";
-            }
-            else if (first_digit == 5)
-            {
-                rezult = "пятьдесят ";
-            }
-            else if (first_digit == 6)
-            {
-                rezult = "шестьдесят ";
-            }
-            if (second_digit == 0) {
-                rezult += "лет";
-            }
-            else if (second_digit == 1)
-            {
-                rezult += "один год";
-            }
-            else if (second_digit == 2)
-            {
-                rezult += "два года";
-            }
-            else if (second_digit == 3)
-            {
-                rezult += "три года";
-            }
-            else if (second_digit == 4)
-            {
-                rezult += "четыре года";
-            }
-            else if (second_digit == 5)
-            {
-                rezult += "пять лет";
-            }
-            else if (second_digit == 6)
-            {
-                rezult += "шесть лет";
-            }
-            else if (second_digit == 7)
-            {
-                rezult += "семь лет";
-            }
-            else if (second_digit == 8)
-            {
-                rezult += "восемь лет";
-            }
-            else if (second_digit == 9)
-            {
-                rezult += "девять лет";
-            }
-            return rezult;
+                0 => "лет",
+                1 => "один год",
+                2 => "два года",
+                3 => "три года",
+                4 => "четыре года",
+                5 => "пять лет",
+                6 => "шесть лет",
+                7 => "семь лет",
+                8 => "восемь лет",
+                9 => "девять лет",
+                _ => ""
+            };
+            return result + result2;
         }
 
         public static void Main(string[] args)

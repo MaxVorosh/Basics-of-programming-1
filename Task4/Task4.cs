@@ -76,12 +76,12 @@
  */
         internal static double ExpTaylor(double x, int n)
         {
-            double pow_x = 1;
+            double powX = 1;
             double factorial = 1;
             double s = 0;
             for (int i = 1; i <= n; ++i) {
-                s += pow_x / factorial;
-                pow_x *= x;
+                s += powX / factorial;
+                powX *= x;
                 factorial *= i;
             }
             return s;
